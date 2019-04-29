@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Strong Friend</title>
+    <style>
+      .screen {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <video
+        class="screen"
+        autoplay
+        controls
+        src="video/two.mp4"
+        poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
+      ></video>
+      <video
+        class="lazy screen"
+        autoplay
+        controls
+        data-src="video/one.mp4"
+        poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
+      >
+        <source type="video/mp4" data-src="video/one.mp4" />
+      </video>
+      <video
+        class="lazy screen"
+        autoplay
+        controls
+        data-src="video/three.mp4"
+        poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
+      >
+        <source type="video/mp4" data-src="video/three.mp4" />
+      </video>
+      <video
+        class="lazy screen"
+        autoplay
+        controls
+        data-src="video/four.mp4"
+        poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
+      >
+        <source type="video/mp4" data-src="video/four.mp4" />
+      </video>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@11.0.6/dist/lazyload.min.js"></script>
+    <script>
+      (function() {
+        function logElementEvent(eventName, element) {
+          console.log(Date.now(), eventName, element.getAttribute("data-src"));
+        }
+        var callback_enter = function(element) {
+          logElementEvent("🔑 ENTERED", element);
+        };
+        var callback_exit = function(element) {
+          logElementEvent("🚪 EXITED", element);
+        };
+        var callback_reveal = function(element) {
+          logElementEvent("👁️ REVEALED", element);
+        };
+        var callback_loaded = function(element) {
+          logElementEvent("👍 LOADED", element);
+        };
+        var callback_error = function(element) {
+          logElementEvent("💀 ERROR", element);
+          element.src =
+            "https://via.placeholder.com/440x560/?text=Error+Placeholder";
+        };
+        var callback_finish = function() {
+          logElementEvent("✔️ FINISHED", document.documentElement);
+        };
+        ll = new LazyLoad({
+          elements_selector: ".lazy",
+          // Assign the callbacks defined above
+          callback_enter: callback_enter,
+          callback_exit: callback_exit,
+          callback_reveal: callback_reveal,
+          callback_loaded: callback_loaded,
+          callback_error: callback_error,
+          callback_finish: callback_finish
+        });
+      })();
+    </script>
+  </body>
+</html>

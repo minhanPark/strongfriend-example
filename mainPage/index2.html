@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.4.0.min.js"
+      integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      html {
+        height: 100%;
+      }
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      video {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <video
+      class="lazy screen"
+      autoplay
+      controls
+      src="video/one.mp4"
+      poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
+    ></video>
+    <video
+      class="lazy2 screen"
+      autoplay
+      controls
+      data-src="video/two.mp4"
+      poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
+    >
+      <source type="video/mp4" data-src="video/two.mp4" />
+    </video>
+    <video
+      class="lazy2 screen"
+      autoplay
+      controls
+      data-src="video/three.mp4"
+      poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
+    >
+      <source type="video/mp4" data-src="video/three.mp4" />
+    </video>
+    <video
+      class="lazy2 screen"
+      autoplay
+      controls
+      data-src="video/four.mp4"
+      poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
+    >
+      <source type="video/mp4" data-src="video/four.mp4" />
+    </video>
+  </body>
+</html>
